@@ -1,0 +1,61 @@
+---
+interface Props {
+  siteName: string;
+}
+const { siteName } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-brand">{siteName}</p>
+    <nav class="footer-links" aria-label="사이트 정보">
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/disclaimer/">Disclaimer</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; {year} {siteName}. 오사카에서 쓰는 일본살이 일기.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    border-top: 2px dashed var(--line);
+    background: var(--paper-deep);
+    padding: 2.2rem 0 2.6rem;
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-links a {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    color: var(--hanko);
+  }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin: 0.3rem 0 0;
+  }
+</style>

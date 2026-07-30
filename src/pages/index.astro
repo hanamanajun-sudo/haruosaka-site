@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts'))
+  .filter((p) => !p.data.noindex)
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+---
+
+<BaseLayout title="하루짱 다이어리">
+  <section class="hero">
+    <p class="hero-eyebrow">Osaka Life Journal &middot; 大阪発</p>
+    <h1>일본에서 쓰는<br />생활 일기, 하루짱 다이어리</h1>
+    <p class="hero-desc">
+      오사카에 살고 있는 한국인이 전하는 일본 생활, 요리 레시피, 한국-일본 생활정보와
+      소소한 이야기들을 기록합니다.
+    </p>
+  </section>
+
+  <hr class="dotted-rule" />
+
+  <section class="post-grid" aria-label="최신 글 목록">
+    {posts.map((post, i) => (
+      <PostCard
+        slug={post.data.slug}
+        title={post.data.title}
+        date={post.data.date}
+        category={post.data.category}
+        description={post.data.description}
+        thumbnail={post.data.thumbnail}
+        index={i}
+      />
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 3rem 0 1rem;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hanko);
+    margin: 0 0 0.8rem;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin: 0 0 1rem;
+  }
+  .hero-desc {
+    max-width: 46ch;
+    margin: 0 auto;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 720px) {
+    .post-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

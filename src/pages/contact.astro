@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" description="하루짱 다이어리 문의 안내">
+  <article class="static-page">
+    <span class="hanko-badge">Contact</span>
+    <h1>문의하기</h1>
+
+    <p>
+      블로그 관련 문의, 오탈자·오류 제보, 광고 및 제휴 문의는 아래 카카오톡 채널을 통해
+      편하게 연락해 주세요.
+    </p>
+
+    <div class="contact-box">
+      <p class="contact-label">광고 · 제휴 문의</p>
+      <p class="contact-value">카카오톡 채널 검색 <strong>@infoepic</strong></p>
+    </div>
+
+    <p>남겨주신 문의는 순차적으로 확인 후 답변드리고 있습니다.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .static-page {
+    max-width: 680px;
+    margin: 2.5rem auto 4rem;
+  }
+  .static-page h1 {
+    margin: 0.8rem 0 1.4rem;
+  }
+  .static-page p {
+    margin: 0 0 1.2em;
+  }
+  .contact-box {
+    background: #fffdf8;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--hanko);
+    text-transform: uppercase;
+    margin: 0 0 0.4em !important;
+  }
+  .contact-value {
+    font-size: 1.05rem;
+    margin: 0 !important;
+  }
+</style>

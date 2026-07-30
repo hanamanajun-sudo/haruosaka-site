@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="페이지를 찾을 수 없어요" noindex>
+  <section class="not-found">
+    <span class="stamp">欠品</span>
+    <h1>404 - 이 페이지는 품절입니다</h1>
+    <p>찾으시는 글이 삭제되었거나 주소가 바뀐 것 같아요.</p>
+    <a href="/" class="home-link">&larr; 홈으로 돌아가기</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: 5rem 0 6rem;
+  }
+  .stamp {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--hanko);
+    border: 3px solid var(--hanko);
+    border-radius: 50%;
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5rem;
+    transform: rotate(-8deg);
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    color: var(--ink-soft);
+  }
+  .home-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.6em 1.4em;
+  }
+  .home-link:hover {
+    color: var(--hanko);
+    border-color: var(--hanko);
+  }
+</style>

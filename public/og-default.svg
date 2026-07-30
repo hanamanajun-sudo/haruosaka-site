@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf3e6"/>
+  <rect width="1200" height="630" fill="none" stroke="#ddccaa" stroke-width="2" stroke-dasharray="10 8" x="0" y="0"/>
+  <circle cx="600" cy="255" r="90" fill="none" stroke="#c8322a" stroke-width="6"/>
+  <text x="600" y="290" font-family="Georgia, serif" font-size="90" font-weight="700" fill="#c8322a" text-anchor="middle">日</text>
+  <text x="600" y="430" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#2b2620" text-anchor="middle">하루짱 다이어리</text>
+  <text x="600" y="480" font-family="Georgia, serif" font-size="24" fill="#6f6656" text-anchor="middle">Osaka Life Journal</text>
+</svg>

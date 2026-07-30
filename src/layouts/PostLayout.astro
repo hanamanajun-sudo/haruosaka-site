@@ -1,0 +1,136 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { categorySlug } from '../lib/categories';
+
+interface Props {
+  title: string;
+  date: string;
+  category?: string;
+  tags?: string[];
+  description?: string;
+  thumbnail?: string;
+  numericId: number;
+}
+const { title, date, category, tags = [], description, thumbnail, numericId } = Astro.props;
+const catSlug = category ? categorySlug(category) : null;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  datePublished: date,
+  description: description || title,
+  author: { '@type': 'Person', name: '하루짱 마마' },
+};
+---
+
+<BaseLayout title={title} description={description} image={thumbnail} type="article">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="post">
+    <header class="post-header">
+      {category && (
+        <a href={catSlug ? `/category/${catSlug}/` : '#'} class="hanko-badge">{category}</a>
+      )}
+      <h1>{title}</h1>
+      <time class="post-date" datetime={date}>{date}</time>
+    </header>
+
+    <hr class="dotted-rule" />
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    {tags.length > 0 && (
+      <>
+        <hr class="dotted-rule" />
+        <ul class="tag-list" aria-label="태그">
+          {tags.map((t) => <li>#{t}</li>)}
+        </ul>
+      </>
+    )}
+
+    <div class="post-footer">
+      <a href="/" class="back-link">&larr; 목록으로 돌아가기</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: 720px;
+    margin: 2.5rem auto 4rem;
+  }
+  .post-header {
+    text-align: center;
+  }
+  .post-header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin: 0.9rem 0 0.6rem;
+  }
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .post-content :global(p) {
+    margin: 0 0 1.3em;
+  }
+  .post-content :global(img) {
+    border-radius: var(--radius);
+    margin: 1.6em auto;
+  }
+  .post-content :global(h2),
+  .post-content :global(h3) {
+    margin-top: 1.8em;
+  }
+  .post-content :global(a) {
+    word-break: break-word;
+  }
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .post-content :global(td),
+  .post-content :global(th) {
+    border: 1px solid var(--line);
+    padding: 0.5em 0.7em;
+  }
+  .post-content :global(blockquote) {
+    margin: 1.6em 0;
+    padding: 0.8em 1.2em;
+    border-left: 3px solid var(--hanko);
+    background: var(--paper-deep);
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+  .tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--indigo);
+  }
+  .post-footer {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .back-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5em 1.2em;
+  }
+  .back-link:hover {
+    color: var(--hanko);
+    border-color: var(--hanko);
+  }
+</style>

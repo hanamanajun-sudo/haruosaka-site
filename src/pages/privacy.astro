@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy" description="하루짱 다이어리 개인정보처리방침">
+  <article class="static-page">
+    <span class="hanko-badge">Privacy</span>
+    <h1>개인정보처리방침</h1>
+
+    <p>본 블로그(이하 "하루짱 다이어리")는 방문자의 개인정보를 소중히 여기며, 아래와 같은 방침으로 운영됩니다.</p>
+
+    <h2>1. 수집하는 정보</h2>
+    <p>
+      본 블로그는 별도의 회원가입이나 개인정보 입력을 요구하지 않습니다. 방문 시 웹 서버 로그에
+      접속 기록(IP, 브라우저 정보, 방문 페이지 등)이 자동으로 기록될 수 있으며, 이는 통계 분석
+      목적 외로는 사용되지 않습니다.
+    </p>
+
+    <h2>2. 쿠키 및 광고</h2>
+    <p>
+      본 블로그는 향후 Google AdSense 등 제3자 광고 서비스를 게재할 수 있습니다. 이 경우 Google을
+      포함한 광고 제공업체는 쿠키를 사용하여 사용자의 관심사에 기반한 광고를 게재할 수 있습니다.
+      사용자는 <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google 광고 설정</a>에서
+      맞춤 광고를 비활성화할 수 있습니다.
+    </p>
+
+    <h2>3. 제3자 서비스</h2>
+    <p>
+      본 블로그는 이미지·영상 등 콘텐츠 전달을 위해 외부 CDN 및 임베드 서비스(예: YouTube)를
+      사용할 수 있으며, 이 경우 해당 서비스 제공자의 개인정보처리방침이 함께 적용됩니다.
+    </p>
+
+    <h2>4. 문의</h2>
+    <p>
+      개인정보와 관련한 문의사항은 <a href="/contact/">Contact</a> 페이지를 통해 연락해 주세요.
+    </p>
+
+    <p class="updated">최종 업데이트: 2026년 7월</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .static-page {
+    max-width: 680px;
+    margin: 2.5rem auto 4rem;
+  }
+  .static-page h1 {
+    margin: 0.8rem 0 1.4rem;
+  }
+  .static-page h2 {
+    font-size: 1.15rem;
+    margin-top: 2em;
+  }
+  .static-page p {
+    margin: 0 0 1.2em;
+  }
+  .updated {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+</style>

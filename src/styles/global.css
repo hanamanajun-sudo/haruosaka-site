@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  --paper: #faf3e6;
+  --paper-deep: #f1e6d2;
+  --ink: #2b2620;
+  --ink-soft: #6f6656;
+  --hanko: #c8322a;
+  --hanko-deep: #a5251e;
+  --indigo: #2f4858;
+  --indigo-soft: #56728a;
+  --line: #ddccaa;
+  --line-soft: #e9dcc0;
+  --paper-shadow: rgba(43, 38, 32, 0.12);
+
+  --font-display: 'Gowun Batang', serif;
+  --font-body: 'Noto Sans KR', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius: 3px;
+  --max-width: 880px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(var(--line-soft) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-color: var(--paper);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--indigo);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--hanko);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0 0 0.6em;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 도장(hanko) 스타일 카테고리 배지 */
+.hanko-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--hanko);
+  border: 1.5px solid var(--hanko);
+  border-radius: 999px;
+  padding: 0.18em 0.75em;
+  transform: rotate(-2deg);
+  background: rgba(200, 50, 42, 0.05);
+  white-space: nowrap;
+}
+
+/* 영수증/티켓 느낌의 점선 구분선 */
+.dotted-rule {
+  border: none;
+  border-top: 2px dashed var(--line);
+  margin: 2.5rem 0;
+}
+
+.torn-card {
+  position: relative;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 0 -3px var(--paper), 0 8px 18px var(--paper-shadow);
+}
+
+::selection {
+  background: var(--hanko);
+  color: #fffdf8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1c1914;
+    --paper-deep: #14110d;
+    --ink: #f1e9d8;
+    --ink-soft: #b9ac91;
+    --line: #3a3226;
+    --line-soft: #26221a;
+    --paper-shadow: rgba(0, 0, 0, 0.4);
+  }
+  .torn-card {
+    background: #24201a;
+  }
+  ::selection {
+    color: #1c1914;
+  }
+}
